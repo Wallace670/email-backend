@@ -4,9 +4,13 @@ import nodemailer from 'nodemailer';
 import cors from 'cors';
 
 dotenv.config();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
